@@ -19,7 +19,7 @@ if ( ! defined( '_S_VERSION' ) ) {
  * runs before the init hook. The init hook is too late for some features, such
  * as indicating support for post thumbnails.
  */
-function wiser_setup() {
+function wiser_setup(): void {
 	/*
 		* Make theme available for translation.
 		* Translations can be filed in the /languages/ directory.
@@ -49,7 +49,7 @@ function wiser_setup() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'wiser' ),
+			'header_menu' => esc_html__( 'Header menu', 'wiser' ),
 		)
 	);
 
