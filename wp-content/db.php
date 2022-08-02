@@ -1,0 +1,1 @@
+/home/alexander/Work/hosts/maria.loc/wp-content/plugins/query-monitor/wp-content/db.php
