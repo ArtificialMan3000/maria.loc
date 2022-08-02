@@ -36,22 +36,6 @@ if ( ! function_exists( 'wiser_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'wiser_posted_by' ) ) :
-	/**
-	 * Prints HTML with meta information for the current author.
-	 */
-	function wiser_posted_by() {
-		$byline = sprintf(
-			/* translators: %s: post author. */
-			esc_html_x( 'by %s', 'post author', 'wiser' ),
-			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
-		);
-
-		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-
-	}
-endif;
-
 if ( ! function_exists( 'wiser_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
@@ -150,16 +134,5 @@ if ( ! function_exists( 'wiser_post_thumbnail' ) ) :
 
 			<?php
 		endif; // End is_singular().
-	}
-endif;
-
-if ( ! function_exists( 'wp_body_open' ) ) :
-	/**
-	 * Shim for sites older than 5.2.
-	 *
-	 * @link https://core.trac.wordpress.org/ticket/12563
-	 */
-	function wp_body_open() {
-		do_action( 'wp_body_open' );
 	}
 endif;
