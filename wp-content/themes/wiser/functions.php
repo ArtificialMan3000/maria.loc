@@ -7,10 +7,6 @@
  * @package Wiser
  */
 
-if ( ! defined( '_S_VERSION' ) ) {
-	// Replace the version number of the theme on each release.
-	define( '_S_VERSION', '1.0.0' );
-}
 function wiser_setup(): void {
 	require_once( 'inc/theme_supports.php' );
 
@@ -51,4 +47,3 @@ add_action( 'wp_enqueue_scripts', 'wiser_scripts' );
 
 require get_template_directory() . '/inc/template-tags.php';
 require get_template_directory() . '/inc/template-functions.php';
-
