@@ -30,7 +30,7 @@ add_action( 'after_setup_theme', 'wiser_setup' );
  */
 if (!function_exists('wiser_content_width')) {
 function wiser_content_width(): void {
-	$GLOBALS['content_width'] = apply_filters( 'wiser_content_width', 640 );
+    $GLOBALS['content_width'] = apply_filters('wiser_content_width', 1140);
 }
 }
 
