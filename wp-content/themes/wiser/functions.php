@@ -41,12 +41,18 @@ add_action( 'after_setup_theme', 'wiser_content_width', 0 );
  */
 if (!function_exists('wiser_scripts')) :
 function wiser_scripts(): void {
-	wp_enqueue_style( 'wiser-style', get_stylesheet_uri(), array(),
-		_S_VERSION );
+    wp_enqueue_style(
+      'wiser-style',
+      get_stylesheet_uri(),
+      array(),
+      false
+    );
 	wp_style_add_data( 'wiser-style', 'rtl', 'replace' );
 
 	wp_enqueue_script( 'wiser-navigation',
-		get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION,
+      get_template_directory_uri() . '/js/navigation.js',
+      array(),
+      false,
 		true );
 }
 endif;
