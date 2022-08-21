@@ -7,15 +7,18 @@
  * @package Wiser
  */
 
-function wiser_setup(): void {
-	require_once( 'inc/theme_supports.php' );
+if (!function_exists('wiser_setup')) {
+  function wiser_setup(): void {
+    require_once('inc/theme_supports.php');
 
-	load_theme_textdomain( 'wiser', get_template_directory() . '/languages' );
+    load_theme_textdomain('wiser', get_template_directory() . '/languages');
 
-	register_nav_menus( array(
-		'header_menu' => esc_html__( 'Header menu', 'wiser' ),
-	) );
+    register_nav_menus(array(
+      'header_menu' => esc_html__('Header menu', 'wiser'),
+    ));
+  }
 }
+
 add_action( 'after_setup_theme', 'wiser_setup' );
 
 /**
@@ -25,8 +28,10 @@ add_action( 'after_setup_theme', 'wiser_setup' );
  *
  * @global int $content_width
  */
+if (!function_exists('wiser_content_width')) {
 function wiser_content_width(): void {
 	$GLOBALS['content_width'] = apply_filters( 'wiser_content_width', 640 );
+}
 }
 
 add_action( 'after_setup_theme', 'wiser_content_width', 0 );
@@ -34,6 +39,7 @@ add_action( 'after_setup_theme', 'wiser_content_width', 0 );
 /**
  * Enqueue scripts and styles.
  */
+if (!function_exists('wiser_scripts')) :
 function wiser_scripts(): void {
 	wp_enqueue_style( 'wiser-style', get_stylesheet_uri(), array(),
 		_S_VERSION );
@@ -43,6 +49,8 @@ function wiser_scripts(): void {
 		get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION,
 		true );
 }
+endif;
+
 add_action( 'wp_enqueue_scripts', 'wiser_scripts' );
 
 require get_template_directory() . '/inc/template-tags.php';
